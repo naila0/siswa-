@@ -32,7 +32,7 @@ export async function ambilDaftarSiswa()  {
   const cuplikanKueri = await getDocs(kueri);
   
   let hasilKueri = [];
-  cuplikanKueri.ForEach((dokumen) => {
+  cuplikanKueri.forEach((dokumen) => {
     hasilKueri.push({
       id:dokumen.id,
       nama: dokumen.data().nama, 
