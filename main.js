@@ -10,8 +10,8 @@ import {
   updateDoc,
   query,
   orderBy
-  } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
-
+} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCgSS-chZUH5T47nhRNeK6jYDnGZK_TQSA",
   authDomain: "insan-cemerlang-d6eb1.firebaseapp.com",
@@ -22,20 +22,20 @@ const firebaseConfig = {
   measurementId: "G-1RSX6TCWZ2"
 };
 
-// Inisialisasi Firebase
+//inisialisasi firebase
 const aplikasi = initializeApp(firebaseConfig)
 const basisdata = getFirestore(aplikasi)
 
-export async function ambilDaftarSiswa()  {
-  const refDokumen = collection(basisdata, "siswa");
+export async function ambilDaftarSiswa() {
+  const refDokumen = collection(basisdata, "Siswa");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
   
   let hasilKueri = [];
   cuplikanKueri.forEach((dokumen) => {
     hasilKueri.push({
-      id:dokumen.id,
-      nama: dokumen.data().nama, 
+      id: dokumen.id,
+      nama: dokumen.data().nama,
       alamat: dokumen.data().alamat
     })
   })
