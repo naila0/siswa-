@@ -22,12 +22,13 @@ const firebaseConfig = {
   measurementId: "G-1RSX6TCWZ2"
 };
 
-//inisialisasi firebase
-const aplikasi = initializeApp(firebaseConfig)
-const basisdata = getFirestore(aplikasi)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 
 export async function ambilDaftarSiswa() {
-  const refDokumen = collection(basisdata, "Siswa");
+  const refDokumen = collection(basisdata, "siswa");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
   
