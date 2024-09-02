@@ -31,10 +31,10 @@
    import { ambilDaftarSiswa } from './main.js';
    
   $(document).ready(async function() {
-    let elemenDaftarSiswa = $("#daftar-siswa");
+    let elemenDaftarSiswa = $("#daftar-siswa tbody");
     let daftarsiswa = await ambilDaftarSiswa();
     
-    daftarsiswa.forEach((data))=>{
+    daftarsiswa.forEach((data))=> {
       elemenDaftarSiswa.append(
        " <tr>"  +
        " <td>" + "</td>" +
