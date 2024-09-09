@@ -45,7 +45,7 @@ export async function ambilDaftarSiswa() {
   return hasilKueri;
 }
 
-export async function tambahsiswa(nama, alamat) {
+export async function tambahSiswa(nama, alamat) {
   try {
     // menyimpan data ke firebase
     const refDokumen =await addDoc(collection(basisdata,"siswa"), {
