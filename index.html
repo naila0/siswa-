@@ -36,33 +36,30 @@
           
           daftarSiswa.forEach((data) => {
             elemenDaftarSiswa.append(
-             "<tr>" +
-               "<td>" + "</td>" +
-               "<td>" + data.nama + "</td>" +
-               "<td>" + data.alamat + "</td>" +
-               "<td>" + "<a href='#'class='me-2 link ubah'data='" + data.id + "' >ubah</a> <button class='btn btn-danger tombol-hapus' data='" +data.id + "'>hapus</button>"  + "</td>" +
-              "</tr>"
-              )
-          })
-          
-          $('.tombol-hapus').click(async function() {
-            await hapussiswa($(this). attr('data'))
-            location.reload() 
-          })
-          
-          
-         $('.link-ubah').click(async function() {
-            location.replace('formulirubah.html?id=' +$(this). attr('data'))
-          })
-          
-        })
-        
-          
-
-      </script>
+              "<tr>" +
+          "<td>" + "</td>" +
+          "<td>" + data.nama + "</td>" +
+          "<td>" + data.alamat + "</td>" +
+          "<td>" + "<a href='#' class='me-2 link-ubah' data='" +data.id + "'>ubah</a><button class='btn btn-danger tombol-hapus' data='"+data.id + "'>hapus</button> " + "</td>" +
+          "</tr>"
+          )
+      })
       
-    </tbody>
-  </table>
-</body>
+      $('.tombol-hapus').click(async function() {
+        await hapusSiswa($(this).attr('data'))
+        location.reload()
+    })
+    
+    $('.link-ubah').click(async function() {
+      location.replace('formulirubah.html?id=' + $(this).attr('data'))
+      
+    })
+    
+    })
+    
+    
+  </script>
 
-</html>
+      <body>
+
+      </body>
