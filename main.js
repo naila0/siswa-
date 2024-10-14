@@ -26,12 +26,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const basisdata = getFirestore(app);
 
-
 export async function ambilDaftarSiswa() {
   const refDokumen = collection(basisdata, "siswa");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
-  
   
   let hasilKueri = [];
   cuplikanKueri.forEach((dokumen) => {
@@ -63,4 +61,15 @@ export async function tambahSiswa(nama, alamat) {
 
 export async function hapussiswa(id) {
   await deleteDoc(doc(basisdata, "siswa", id))
+}
+
+export async function ambilSiswa(id) {
+  const refDokumen = await doc(basisdata, "siswa", id)
+  const snapshotDokumen = await getDoc(refDokumen) 
+  
+  return await snapshotDokumen.data()
+}
+
+export async function ubahSiswa(id, nama, alamat) {
+  await updateDoc(doc(basisdata, "siswa", id), { nama: nama, alamat: alamat })
 }
